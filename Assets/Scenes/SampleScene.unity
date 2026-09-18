@@ -524,7 +524,7 @@ Transform:
   m_GameObject: {fileID: 1840125708}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.47374, y: 0.15988, z: -0.03588}
+  m_LocalPosition: {x: -0.74, y: 0.24, z: -0.03588}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -548,8 +548,8 @@ MonoBehaviour:
   minSpeedDolph: 2
   maxSpeedDolph: 18
   rotationSpeedDolph: 5
-  closeDolphRadius: 20
-  separationRadiusDolph: 10
+  closeDolphRadius: 30
+  separationRadiusDolph: 20
   closeSharkRadius: 45
   separationRadiusShark: 2
   closeFishRadius: 15
@@ -609,7 +609,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::fishSchool
   schoolingFishPrefab: {fileID: 3402285742993044054, guid: 2c275f92aaa464d428af4aa603ec294e, type: 3}
-  schoolSizeFish: 250
+  schoolSizeFish: 550
   spawnRadiusFish: 40
   minSpeedFish: 2
   maxSpeedFish: 30
