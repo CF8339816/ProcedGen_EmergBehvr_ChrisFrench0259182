@@ -854,8 +854,8 @@ PlayerSettings:
   editorAssembliesCompatibilityLevel: 1
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: ProcedGen_EmergBehvr_ChrisFrench0259182
-  metroPackageVersion: 
+  metroPackageName: ProcedGenEmergBehvrChrisFrench0259182
+  metroPackageVersion: 1.0.0.0
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
@@ -863,7 +863,7 @@ PlayerSettings:
   metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: ProcedGen_EmergBehvr_ChrisFrench0259182
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: ProcedGen_EmergBehvr_ChrisFrench0259182
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0
