@@ -519,7 +519,7 @@
             ]
         },
         {
-            "name": "diver",
+            "name": "Player",
             "id": "ef83b5ee-65a7-4e98-8441-46fe54d3cd11",
             "actions": [
                 {

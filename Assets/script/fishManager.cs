@@ -10,7 +10,7 @@ public class SchoolingFish : MonoBehaviour
     public dolphSchool dolphSchool;
     public fishSchool fishSchool;
     public sharkSchool sharkSchool;
-
+    public DiverSwim diverSwim;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -131,6 +131,29 @@ public class SchoolingFish : MonoBehaviour
                 count++;
 
                 Vector3 offset = transform.position - closeDolph.transform.position;
+                separationMove += offset.normalized / distance;
+            }
+        }
+
+        if (count > 0) separationMove /= count;
+        return separationMove;
+    }
+
+    //---------------------------------
+    public Vector3 CalculateSeparation(List<SchoolingShark> closeSharks) // checks for sharks nearby and moves away depending on defined values
+    {
+        Vector3 separationMove = Vector3.zero;
+        int count = 0;
+
+        foreach (SchoolingShark closeShark in closeSharks)
+        {
+            float distance = Vector3.Distance(transform.position, closeShark.transform.position);
+
+            if (distance < sharkSchool.separationRadiusShark && distance > 0)
+            {
+                count++;
+
+                Vector3 offset = transform.position - closeShark.transform.position;
                 separationMove += offset.normalized / distance;
             }
         }
