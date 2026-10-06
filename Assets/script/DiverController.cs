@@ -16,7 +16,7 @@ public class DiverController : MonoBehaviour
 
     public class PlayerController : MonoBehaviour
     {
-        [SerializeField] private float moveSpeed = 5f;
+        [SerializeField] public float moveSpeed = 25f;
         private DiverControls inputActions;
         private Vector2 moveInput;
         private CharacterController diverController;
@@ -51,7 +51,7 @@ public class DiverController : MonoBehaviour
         }
         private void MoveDiver()
         {
-            Vector3 direction = new Vector3(moveInput.x, 0f, moveInput.y);
+            Vector3 direction = new Vector3(moveInput.x, 25f, moveInput.y);
            diverController.Move(direction * moveSpeed * Time.deltaTime);
         }
     }

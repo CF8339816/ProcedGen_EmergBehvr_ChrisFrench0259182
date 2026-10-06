@@ -143,8 +143,9 @@ GameObject:
   m_Component:
   - component: {fileID: 77741888}
   - component: {fileID: 77741887}
-  - component: {fileID: 77741890}
   - component: {fileID: 77741889}
+  - component: {fileID: 77741891}
+  - component: {fileID: 77741890}
   m_Layer: 0
   m_Name: Diver
   m_TagString: Untagged
@@ -217,6 +218,22 @@ CharacterController:
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &77741890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77741885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c24589efe63a7646945e0be88fb4118, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DiverSwim
+  SwimmingDiver: {fileID: 77741890}
+  DivingGroup: 1
+  closeDiverRadius: 4
+  separationRadiusDiver: 10.5
+--- !u!114 &77741891
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -332,12 +349,12 @@ Transform:
   m_GameObject: {fileID: 326857091}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -250}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1374772354}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 330585546}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &330585543
 GameObject:
@@ -351,7 +368,6 @@ GameObject:
   - component: {fileID: 330585545}
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
-  - component: {fileID: 330585548}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -430,7 +446,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 326857092}
   m_Father: {fileID: 77741888}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &330585547
@@ -477,29 +494,6 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
---- !u!136 &330585548
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330585543}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 3
-  m_Height: 10
-  m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -918,7 +912,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1167793424
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1305,6 +1299,8 @@ MonoBehaviour:
   separationRadiusShark: 5
   closeDolphRadius: 4
   separationRadiusDolph: 1.5
+  closeDiverRadius: 4
+  separationRadiusDiver: 10.5
   separationWeightFish: 1.5
   alignmentWeightFish: 1
   cohesionWeightFish: 1
@@ -1315,12 +1311,14 @@ MonoBehaviour:
   separationWeightDolph: 1.5
   alignmentWeightDolph: 1
   cohesionWeightDolph: 1
+  separationWeightDiver: 1.5
+  alignmentWeightDiver: 1
+  cohesionWeightDiver: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 77741888}
-  - {fileID: 326857092}
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 1982261580}
