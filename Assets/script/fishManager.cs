@@ -32,6 +32,7 @@ public class SchoolingFish : MonoBehaviour
         Vector3 separationFish = CalculateSeparation(closeFishs);
         Vector3 alignmentFish = CalculateAlignment(closeFishs);
         Vector3 cohesionFish = CalculateCohesion(closeFishs);
+      
         Vector3 boundsFish = AvoidBounds();
 
 
@@ -140,20 +141,20 @@ public class SchoolingFish : MonoBehaviour
     }
 
     //---------------------------------
-    public Vector3 CalculateSeparation(List<SchoolingShark> closeSharks) // checks for sharks nearby and moves away depending on defined values
+    public Vector3 CalculateSeparation(List<DiverSwim> closeDivers) // checks for sharks nearby and moves away depending on defined values
     {
         Vector3 separationMove = Vector3.zero;
         int count = 0;
 
-        foreach (SchoolingShark closeShark in closeSharks)
+        foreach (DiverSwim closeDiver in closeDivers)
         {
-            float distance = Vector3.Distance(transform.position, closeShark.transform.position);
+            float distance = Vector3.Distance(transform.position, closeDiver.transform.position);
 
-            if (distance < sharkSchool.separationRadiusShark && distance > 0)
+            if (distance < diverSwim.separationRadiusDiver && distance > 0)
             {
                 count++;
 
-                Vector3 offset = transform.position - closeShark.transform.position;
+                Vector3 offset = transform.position - closeDiver.transform.position;
                 separationMove += offset.normalized / distance;
             }
         }

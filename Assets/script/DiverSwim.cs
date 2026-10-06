@@ -7,21 +7,27 @@ public class DiverSwim : MonoBehaviour
     public DiverSwim SwimmingDiver;
     public int DivingGroup = 1;
 
-    public List<SchoolingFish> AllSchoolingFishs { get; private set; } = new List<SchoolingFish>(); //Creates a list of divers the fish, sharks, and dolphins can  detect against
+
+    [Header("Detection Settings")]
+    //------------------ defines how close Fish can get
+    public float closeDiverRadius = 4f;
+    public float separationRadiusDiver = 10.5f;
+    //--
+    public List<DiverSwim> AllSwimmingDivers { get; private set; } = new List<DiverSwim>(); //Creates a list of divers the fish, sharks, and dolphins can  detect against
 
 
 
 
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
+    //// Start is called once before the first execution of Update after the MonoBehaviour is created
+    //void Start()
+    //{
         
-    }
+    //}
 
-    // Update is called once per frame
-    void Update()
-    {
+    //// Update is called once per frame
+    //void Update()
+    //{
         
-    }
+    //}
 }

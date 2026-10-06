@@ -25,7 +25,9 @@ public class fishSchool : MonoBehaviour
     //------------------ defines how close  dolphins can get
     public float closeDolphRadius = 4f;
     public float separationRadiusDolph = 1.5f;
-
+    //------------------ defines how close  dolphins can get
+    public float closeDiverRadius = 4f;
+    public float separationRadiusDiver = 10.5f;
 
     [Header("Behavior Weights")]
     //------------------ defines behavior around fish
@@ -42,7 +44,11 @@ public class fishSchool : MonoBehaviour
     public float separationWeightDolph = 1.5f;
     public float alignmentWeightDolph = 1.0f;
     public float cohesionWeightDolph = 1.0f;
- 
+
+    //------------------ defines behavior around diver
+    public float separationWeightDiver = 1.5f;
+    public float alignmentWeightDiver = 1.0f;
+    public float cohesionWeightDiver = 1.0f;
 
     public List<SchoolingFish> AllSchoolingFishs { get; private set; } = new List<SchoolingFish>(); //Creates the Ref list based on the defined number for  the prefab generation
 
