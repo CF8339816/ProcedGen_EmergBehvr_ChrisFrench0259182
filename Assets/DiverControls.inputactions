@@ -16,10 +16,19 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "cam look",
+                    "name": "camLook",
                     "type": "Value",
                     "id": "e8e2b85c-8419-4802-b670-13b08b6c2a2a",
                     "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Acceleration",
+                    "type": "Button",
+                    "id": "44a725bf-a6ba-45d8-b514-4ad0dcd28d4a",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -143,7 +152,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "cam look",
+                    "action": "camLook",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "797e6564-6c8a-4dec-9f3a-6f7fa7387848",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Acceleration",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -14,28 +14,35 @@ public class DiverController : MonoBehaviour
     #endregion
 
 
-    public class PlayerController : MonoBehaviour
-    {
-        [SerializeField] public float moveSpeed = 25f;
+        [SerializeField] public float moveSpeed = .1f;
+        [SerializeField] public float MinSpeed = 0f;
+        [SerializeField] public float MaxSpeed = 15f;
+    [SerializeField] public float Accelerate = 1f;
         private DiverControls inputActions;
         private Vector2 moveInput;
-        private CharacterController diverController;
-        private void Awake()
+        private bool AccelerationInput;
+         private CharacterController characterController;
+    private void Awake()
         {
-            inputActions = new DiverControls();
-            diverController = GetComponent<CharacterController>();
+        AccelerationInput= false;  
+        inputActions = new DiverControls();
+        characterController = GetComponent<CharacterController>();
         }
         private void OnEnable()
         {
             inputActions.diver.Enable();
             inputActions.diver.move.performed += OnMoveInput;
             inputActions.diver.move.canceled += OnMoveStopped;
-        }
+            inputActions.diver.Acceleration.performed += OnAccelerationInput;
+            inputActions.diver.Acceleration.canceled += OnAccelerationopped;
+    }
         private void OnDisable()
         {
             inputActions.diver.move.performed -= OnMoveInput;
             inputActions.diver.move.canceled -= OnMoveStopped;
-            inputActions.diver.Disable();
+            inputActions.diver.Acceleration.performed += OnAccelerationInput;
+            inputActions.diver.Acceleration.canceled += OnAccelerationopped;
+        inputActions.diver.Disable();
         }
         private void Update()
         {
@@ -49,11 +56,47 @@ public class DiverController : MonoBehaviour
         {
             moveInput = Vector2.zero;
         }
-        private void MoveDiver()
+
+    private void OnAccelerationInput(InputAction.CallbackContext context)
+    {
+        if (AccelerationInput == true)
         {
-            Vector3 direction = new Vector3(moveInput.x, 25f, moveInput.y);
-           diverController.Move(direction * moveSpeed * Time.deltaTime);
+            if (moveSpeed < MaxSpeed )
+            {
+                moveSpeed = Accelerate++;
+            }
+        }
+        else
+        {
+
+            moveSpeed =MaxSpeed;
         }
     }
-}
+
+        private void OnAccelerationopped(InputAction.CallbackContext context)
+        {
+        if (AccelerationInput == false)
+        {
+            if (moveSpeed > MinSpeed)
+            {
+                moveSpeed = Accelerate--;
+            }
+        }
+        else
+        {
+
+            moveSpeed = MinSpeed;
+        }
+    }
+
+
+
+
+    private void MoveDiver()
+        {
+            Vector3 direction = new Vector3(moveInput.x, moveSpeed, moveInput.y);
+        characterController.Move(direction * moveSpeed * Time.deltaTime);
+        }
+    }
+
  
